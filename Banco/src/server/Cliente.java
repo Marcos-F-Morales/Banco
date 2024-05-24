@@ -1,19 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package sockets;
+package server;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import sockets.conexion.Conexion;
+import java.util.Scanner;
 
-public class Cliente extends Conexion
-{
+
+public class Cliente extends Conexion {
+    
     public Cliente() throws IOException{super("cliente");} //Se usa el constructor para cliente de Conexion
 
     public void startClient() //Método para iniciar el cliente
     {
+        
         try
         {
             //Flujo de datos hacia el servidor
@@ -26,6 +24,9 @@ public class Cliente extends Conexion
                 salidaServidor.writeUTF("Este es el mensaje número " + (i+1) + "\n");
             }
 
+           /* int datrecib = 0;
+            salidaServidor.write(datrecib);
+*/
             cs.close();//Fin de la conexión
 
         }
