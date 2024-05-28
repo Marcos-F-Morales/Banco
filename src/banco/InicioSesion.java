@@ -64,7 +64,7 @@ public class InicioSesion extends javax.swing.JFrame {
         Hotel.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Hotel.setForeground(new java.awt.Color(255, 255, 255));
         Hotel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Hotel.setText("banco Generico");
+        Hotel.setText("banco AVL");
         Hotel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         CinicioSesion.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
@@ -217,44 +217,41 @@ public class InicioSesion extends javax.swing.JFrame {
         String UsuarioCa1 = "Caja1";
         String ConstraseñaCa1 = "caja123";
         
-        String passwordCa1 = new String(contrasena_text.getPassword());
-        
         if(passwordIngresado.equals(ConstraseñaCa1) && Usuario.equals(UsuarioCa1)){
             Caja1 C1 = new Caja1();
             C1.setVisible(true);
             this.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(  this, "usuario o contraseña incorrecto");
-            System.out.println("Usuario ingresado: " + usuario_text.getText());
-System.out.println("Contraseña ingresada: " + passwordCa1);
         }
         
         String UsuarioCa2 = "Caja2";
         String ConstraseñaCa2 = "caja456";
         
-        String passwordCa2 = new String(contrasena_text.getPassword());
-        
-        if(usuario_text.getText().equals(UsuarioCa2) && passwordCa2.equals(ConstraseñaCa2)){
+        if(usuario_text.getText().equals(UsuarioCa2) && passwordIngresado.equals(ConstraseñaCa2)){
             Caja2 C2 = new Caja2();
             C2.setVisible(true);
             this.setVisible(false);
+        }else {
+            JOptionPane.showMessageDialog(  this, "usuario o contraseña incorrecto");
         }
+        
         String UsuarioCa3 = "Caja3";
         String ConstraseñaCa3 = "caja789";
         
-        String passwordCa3 = new String(contrasena_text.getPassword());
-        
-        if(usuario_text.getText().equals(UsuarioCa3) && passwordCa3.equals(ConstraseñaCa3)){
+        if(usuario_text.getText().equals(UsuarioCa3) && passwordIngresado.equals(ConstraseñaCa3)){
             Caja3 C3 = new Caja3();
             C3.setVisible(true);
             this.setVisible(false);
         }
+        else {
+            JOptionPane.showMessageDialog(  this, "usuario o contraseña incorrecto");
+        }
+        
         String UsuarioS = "Caja3";
         String ConstraseñaS = "cliente123";
         
-        String passwordS = new String(contrasena_text.getPassword());
-        
-        if(usuario_text.getText().equals(UsuarioS) && passwordS.equals(ConstraseñaS)){
+        if(usuario_text.getText().equals(UsuarioS) && passwordIngresado.equals(ConstraseñaS)){
             //ingresar la interfaz del lado del cliente
         }
 
