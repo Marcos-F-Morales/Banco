@@ -218,22 +218,18 @@ public class InicioSesion extends javax.swing.JFrame {
         String ConstraseñaCa1 = "caja123";
         
         if(passwordIngresado.equals(ConstraseñaCa1) && Usuario.equals(UsuarioCa1)){
-            Caja1 C1 = new Caja1();
+            Caja1 C1 = new Caja1(UsuarioCa1);
             C1.setVisible(true);
             this.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(  this, "usuario o contraseña incorrecto");
-        }
+        } 
         
         String UsuarioCa2 = "Caja2";
         String ConstraseñaCa2 = "caja456";
         
         if(usuario_text.getText().equals(UsuarioCa2) && passwordIngresado.equals(ConstraseñaCa2)){
-            Caja2 C2 = new Caja2();
+            Caja2 C2 = new Caja2(UsuarioCa2);
             C2.setVisible(true);
             this.setVisible(false);
-        }else {
-            JOptionPane.showMessageDialog(  this, "usuario o contraseña incorrecto");
         }
         
         String UsuarioCa3 = "Caja3";
@@ -244,15 +240,15 @@ public class InicioSesion extends javax.swing.JFrame {
             C3.setVisible(true);
             this.setVisible(false);
         }
-        else {
-            JOptionPane.showMessageDialog(  this, "usuario o contraseña incorrecto");
-        }
         
-        String UsuarioS = "Caja3";
-        String ConstraseñaS = "cliente123";
+        
+        String UsuarioS = "ServicioC";
+        String ConstraseñaS = "servicio123";
         
         if(usuario_text.getText().equals(UsuarioS) && passwordIngresado.equals(ConstraseñaS)){
-            //ingresar la interfaz del lado del cliente
+            ServicioClientes Cc = new ServicioClientes(UsuarioS);
+            Cc.setVisible(true);
+            this.setVisible(false);
         }
 
     }//GEN-LAST:event_InicioSesionBtmActionPerformed
