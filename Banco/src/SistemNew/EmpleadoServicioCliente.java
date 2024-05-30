@@ -19,7 +19,7 @@ public class EmpleadoServicioCliente {
             out.writeObject("employee");
             out.writeObject("servicio al cliente");
 
-            Ticket ticket = (Ticket) in.readObject();
+            String ticket = (String) in.readObject();
             System.out.println("Atendiendo ticket: " + ticket);
 
         } catch (IOException | ClassNotFoundException e) {
@@ -27,3 +27,4 @@ public class EmpleadoServicioCliente {
         }
     }
 }
+

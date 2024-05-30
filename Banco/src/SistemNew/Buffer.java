@@ -8,14 +8,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Buffer {
-    private Queue<Ticket> queue = new LinkedList<>();
+    private Queue<String> queue = new LinkedList<>();
     private final int capacity;
 
     public Buffer(int capacity) {
         this.capacity = capacity;
     }
 
-    public synchronized void produce(Ticket ticket) throws InterruptedException {
+    public synchronized void produce(String ticket) throws InterruptedException {
         while (queue.size() == capacity) {
             wait();
         }
@@ -23,11 +23,11 @@ public class Buffer {
         notifyAll();
     }
 
-    public synchronized Ticket consume() throws InterruptedException {
+    public synchronized String consume() throws InterruptedException {
         while (queue.isEmpty()) {
             wait();
         }
-        Ticket ticket = queue.poll();
+        String ticket = queue.poll();
         notifyAll();
         return ticket;
     }

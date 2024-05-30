@@ -8,7 +8,7 @@ import java.io.*;
 import java.net.*;
 
 public class EmpleadoCaja {
-     private static final String HOST = "localhost";
+    private static final String HOST = "localhost";
     private static final int PORT = 12345;
 
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class EmpleadoCaja {
             out.writeObject("employee");
             out.writeObject("caja");
 
-            Ticket ticket = (Ticket) in.readObject();
+            String ticket = (String) in.readObject();
             System.out.println("Atendiendo ticket: " + ticket);
 
         } catch (IOException | ClassNotFoundException e) {

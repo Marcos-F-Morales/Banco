@@ -4,6 +4,7 @@
  */
 package SistemNew;
 
+
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.*;
@@ -13,6 +14,7 @@ public class Servidor {
     private static final int CAPACITY = 10;
     private static Buffer bufferCaja = new Buffer(CAPACITY);
     private static Buffer bufferServicioCliente = new Buffer(CAPACITY);
+    private static int ticketCounter = 0;
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -45,7 +47,7 @@ public class Servidor {
 
                 if (role.equals("client")) {
                     String serviceType = (String) in.readObject();
-                    Ticket ticket = new Ticket(serviceType);
+                    String ticket = generateTicket(serviceType);
                     if (serviceType.equals("caja")) {
                         bufferCaja.produce(ticket);
                     } else {
@@ -54,7 +56,7 @@ public class Servidor {
                     out.writeObject(ticket);
                 } else if (role.equals("employee")) {
                     String serviceType = (String) in.readObject();
-                    Ticket ticket;
+                    String ticket;
                     if (serviceType.equals("caja")) {
                         ticket = bufferCaja.consume();
                     } else {
@@ -67,6 +69,10 @@ public class Servidor {
                 e.printStackTrace();
             }
         }
+
+        private synchronized String generateTicket(String serviceType) {
+            ticketCounter++;
+            return "Ticket-" + serviceType + "-" + ticketCounter;
+        }
     }
-    
 }

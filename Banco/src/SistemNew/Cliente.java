@@ -18,7 +18,7 @@ public class Cliente {
             out.writeObject("client");
             out.writeObject("caja"); // O "servicio al cliente"
 
-            Ticket ticket = (Ticket) in.readObject();
+            String ticket = (String) in.readObject();
             System.out.println("Ticket generado: " + ticket);
 
         } catch (IOException | ClassNotFoundException e) {
